@@ -72,7 +72,29 @@ ax1.set(xlabel="Fandango_Ratingvalue", ylabel="RT_user_norm")
 ax2.set(xlabel="Fandango_Ratingvalue", ylabel="Metacritic_user_nom")
 ax3.set(xlabel="Fandango_Ratingvalue", ylabel="IMDB_norm")
 
-plt.show()
-
 # From the scatter plots, we can conclude that user ratings from IMDB and Fandango are the most similar.
 # Also, ratings from Metacritic and Rotten Tomatoes have positive but weak correlation with ratings from Fandango.
+
+# Generate histograms using 20 bins for all four columns.
+# Ensure that the scales for the y-axis are the same for all histograms
+fig = plt.figure(figsize=(5,20))
+ax1 = fig.add_subplot(4,1,1)
+ax2 = fig.add_subplot(4,1,2)
+ax3 = fig.add_subplot(4,1,3)
+ax4 = fig.add_subplot(4,1,4)
+
+ax1.hist(norm_reviews['Fandango_Ratingvalue'], bins=20, range=(0, 5))
+ax1.set_title("Distribution of Fandango Ratings")
+ax2.hist(norm_reviews['RT_user_norm'], bins=20, range=(0, 5))
+ax2.set_title("Distribution of Rotten Tomatoes Ratings")
+ax3.hist(norm_reviews['Metacritic_user_nom'], bins=20, range=(0, 5))
+ax3.set_title("Distribution of Metacritic Ratings")
+ax4.hist(norm_reviews['IMDB_norm'], bins=20, range=(0, 5))
+ax4.set_title("Distribution of IMDB Ratings"        )
+
+ax1.set_ylim(0,50)
+ax2.set_ylim(0,50)
+ax3.set_ylim(0,50)
+ax4.set_ylim(0,50)
+
+plt.show()
