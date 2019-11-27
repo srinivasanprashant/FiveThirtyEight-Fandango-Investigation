@@ -97,4 +97,12 @@ ax2.set_ylim(0,50)
 ax3.set_ylim(0,50)
 ax4.set_ylim(0,50)
 
+
+# Generate a box plot containing a box-and-whisker diagram for the following columns
+num_cols = ['RT_user_norm', 'Metacritic_user_nom', 'IMDB_norm', 'Fandango_Ratingvalue']
+fig, ax = plt.subplots()
+ax.boxplot(norm_reviews[num_cols].values)
+ax.set_ylim(0,5)
+ax.set_xticklabels(num_cols, rotation=90)
+
 plt.show()
